@@ -48,11 +48,11 @@
 - 「匯出待上傳包」只會把所有 `pending` 紀錄包成 JSON 檔，供人工搬移或後續 API 測試；匯出成功仍不代表伺服器已接收，所以狀態不會被清除。
 - 正式版應由後端回傳每筆紀錄的接收確認、伺服器版本與時間，前端收到確認後才可標記 `synced`。
 - Service Worker 只快取應用程式與 Schema；IndexedDB 保存填寫內容、簽名與照片。兩者用途不同。
-- 手機以區網 `http://Mac-IP:8000` 開啟時，通常可在已開啟頁面中斷網繼續填寫，但因非 HTTPS，Service Worker 不會啟用，關閉頁面後不保證能離線重開。
+- 手機以區網 `http://本機-IP:8000` 開啟時，通常可在已開啟頁面中斷網繼續填寫，但因非 HTTPS，Service Worker 不會啟用，關閉頁面後不保證能離線重開。
 
 ---
 
-## MacBook Air M4 快速啟動
+## 快速啟動
 
 ### 1. 啟動網頁 PoC
 
@@ -69,13 +69,13 @@ python3 serve.py
 start.command
 ```
 
-Mac 瀏覽器：
+本機 瀏覽器：
 
 ```text
 http://localhost:8000/web/
 ```
 
-手機與 Mac 連同一個 Wi-Fi，再使用終端機顯示的區網網址。
+手機與 本機 連同一個 Wi-Fi，再使用終端機顯示的區網網址。
 
 > 不可直接雙擊 `web/index.html`，因瀏覽器會阻擋 `fetch()` 讀取 Schema，Service Worker 也無法正確啟用。
 
@@ -83,8 +83,8 @@ http://localhost:8000/web/
 
 瀏覽器的 Service Worker 僅允許 `https://` 或本機 `localhost`。因此：
 
-- Mac 上用 `http://localhost:8000` 可完整測試 PWA。
-- 手機用 `http://Mac區網IP:8000` 可測試填表與 IndexedDB，但不能保證關閉頁面後離線重新開啟。
+- 本機 上用 `http://localhost:8000` 可完整測試 PWA。
+- 手機用 `http://本機區網IP:8000` 可測試填表與 IndexedDB，但不能保證關閉頁面後離線重新開啟。
 - 手機完整 PWA 驗證，建議使用本專案內建的 GitHub Pages workflow，取得正式 HTTPS 網址。
 
 GitHub 儲存庫 Settings → Pages → Source 選擇 **GitHub Actions**，推送到 `main` 後，`.github/workflows/pages.yml` 會自動部署。網站入口為部署網址下的 `/web/`。
@@ -95,7 +95,7 @@ GitHub 儲存庫 Settings → Pages → Source 選擇 **GitHub Actions**，推�
 python3 serve.py --port 8443 --certfile cert.pem --keyfile key.pem
 ```
 
-憑證須包含 Mac 的區網 IP，且手機必須信任該憑證簽發者；否則 Service Worker 仍不會啟用。
+憑證須包含 本機 的區網 IP，且手機必須信任該憑證簽發者；否則 Service Worker 仍不會啟用。
 
 ### 2. 安裝成 PWA
 
@@ -145,7 +145,7 @@ python tools/render_record_pdf.py \
   output.pdf
 ```
 
-PDF 工具會依序尋找 macOS 的 PingFang／STHeiti／Arial Unicode 等字型；不會將字型檔包入本專案。
+PDF 工具會依序尋找 本機OS 的 PingFang／STHeiti／Arial Unicode 等字型；不會將字型檔包入本專案。
 
 ---
 
