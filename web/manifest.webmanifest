@@ -1,0 +1,15 @@
+{
+  "name": "現場查驗表單 PoC",
+  "short_name": "查驗表單",
+  "description": "Schema 驅動、離線優先的工程現場查驗電子表單 PoC",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eee9dc",
+  "theme_color": "#17362b",
+  "lang": "zh-Hant",
+  "icons": [
+    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png"},
+    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png"}
+  ]
+}

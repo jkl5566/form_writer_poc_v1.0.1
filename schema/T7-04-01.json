@@ -1,0 +1,370 @@
+{
+  "form_code": "T7-04-01",
+  "schema_version": "1.0.0-poc",
+  "title": "連續壁施工品質抽查紀錄表（1/6）",
+  "org": "臺北市政府捷運工程局第一區工程處",
+  "template_type": "inspection_checklist",
+  "bundle": {
+    "id": "continuous-wall",
+    "label": "連續壁查驗表組",
+    "stage": 1,
+    "total": 6
+  },
+  "source": {
+    "caption": "表 7-4 連續壁施工抽查紀錄表(1/6)",
+    "document": "07_第七章_施工抽查程序及標準_應用表單.docx"
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "fields",
+      "title": "基本資料",
+      "layout": "grid-2",
+      "fields": [
+        {
+          "key": "serial_no",
+          "label": "編號",
+          "type": "text",
+          "required": true,
+          "placeholder": "例：CF710-20260730-001"
+        },
+        {
+          "key": "project_name",
+          "label": "工程名稱",
+          "type": "text",
+          "required": true,
+          "default": "環狀線東環段 CF710 區段標工程"
+        },
+        {
+          "key": "contractor",
+          "label": "施工廠商",
+          "type": "text",
+          "required": true,
+          "default": "皇昌營造股份有限公司／日商奧村組台灣分公司"
+        },
+        {
+          "key": "subitem_name",
+          "label": "分項工程名稱",
+          "type": "text",
+          "required": true,
+          "default": "連續壁工程"
+        },
+        {
+          "key": "construction_unit",
+          "label": "施工單元",
+          "type": "text",
+          "required": true,
+          "placeholder": "例：DW-A01"
+        },
+        {
+          "key": "location",
+          "label": "抽查位置",
+          "type": "text",
+          "required": true,
+          "placeholder": "站體／樓層／里程／單元"
+        },
+        {
+          "key": "inspect_date",
+          "label": "檢查日期",
+          "type": "date",
+          "required": true,
+          "default": "today"
+        },
+        {
+          "key": "inspect_time",
+          "label": "檢查時間",
+          "type": "time",
+          "required": true
+        },
+        {
+          "key": "inspect_timing",
+          "label": "抽查時機",
+          "type": "radio",
+          "required": true,
+          "default": "hold_point",
+          "options": [
+            {
+              "value": "hold_point",
+              "label": "檢驗停留點"
+            },
+            {
+              "value": "random",
+              "label": "隨機抽查"
+            }
+          ]
+        },
+        {
+          "key": "drawing_no",
+          "label": "施工圖號／版次",
+          "type": "text",
+          "placeholder": "核定施工圖號與版次"
+        }
+      ]
+    },
+    {
+      "id": "inspection",
+      "type": "checklist",
+      "title": "抽查項目",
+      "result_options": [
+        "pass",
+        "fail",
+        "na"
+      ],
+      "groups": [
+        {
+          "id": "before",
+          "label": "施工前",
+          "items": [
+            {
+              "key": "survey",
+              "label": "測量及放樣",
+              "standard": "依核定施工圖及測量成果",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "guide_wall",
+              "label": "導溝施作",
+              "standard": "詳導溝施工品質抽查紀錄表",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "slurry_test",
+              "label": "穩定液檢驗",
+              "standard": "詳穩定液施工品質抽查紀錄表",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "rebar_cage",
+              "label": "鋼筋籠製作",
+              "standard": "詳鋼筋籠施工品質抽查紀錄表",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "material",
+              "label": "材質抽查",
+              "standard": "依核定材料送審及試驗報告",
+              "required": true
+            },
+            {
+              "key": "slurry_capacity",
+              "label": "穩定液容量",
+              "standard": "符合施工計畫需求",
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "during",
+          "label": "施工中",
+          "items": [
+            {
+              "key": "excavation_log",
+              "label": "開挖紀錄",
+              "standard": "依核定施工計畫逐段記錄",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "slurry_level",
+              "label": "穩定液及液面高度檢測",
+              "standard": "依施工計畫及規範",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "end_plate",
+              "label": "端鈑處理（公單元、公母單元）",
+              "standard": "依單元公母屬性及核定施工圖",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "ultrasonic",
+              "label": "超音波檢測",
+              "standard": "依適用單元及核定程序辦理",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "sediment",
+              "label": "溝底沉泥清除及深度確認",
+              "standard": "依核定施工圖及規範",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "plate_joint",
+              "label": "上下端鈑接合處理及鋼筋續接",
+              "standard": "依核定施工圖",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "tremie",
+              "label": "特密管安裝",
+              "standard": "依核定澆置計畫",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "slurry_check",
+              "label": "穩定液檢測",
+              "standard": "澆置混凝土前完成檢測",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "backfill",
+              "label": "端鈑外回填碎石（母單元）",
+              "standard": "母單元適用；依核定施工圖",
+              "required": true,
+              "applicable_when": {
+                "field": "unit_gender",
+                "value": "female"
+              }
+            },
+            {
+              "key": "concrete",
+              "label": "混凝土澆注",
+              "standard": "依混凝土灌漿及施工品質抽查紀錄",
+              "required": true,
+              "hold_point": true
+            }
+          ]
+        },
+        {
+          "id": "after",
+          "label": "施工後",
+          "items": [
+            {
+              "key": "cleanup",
+              "label": "場地整理",
+              "standard": "場地清潔",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit_properties",
+      "type": "fields",
+      "title": "施工單元與計量資料",
+      "layout": "grid-2",
+      "fields": [
+        {
+          "key": "unit_gender",
+          "label": "單元屬性",
+          "type": "radio",
+          "required": true,
+          "options": [
+            {
+              "value": "male",
+              "label": "公單元"
+            },
+            {
+              "value": "female",
+              "label": "母單元"
+            },
+            {
+              "value": "special",
+              "label": "特殊單元"
+            }
+          ]
+        },
+        {
+          "key": "unit_thickness",
+          "label": "單元厚度",
+          "type": "number",
+          "unit": "m",
+          "step": "0.01"
+        },
+        {
+          "key": "unit_length",
+          "label": "單元長度",
+          "type": "number",
+          "unit": "m",
+          "step": "0.01",
+          "required": true
+        },
+        {
+          "key": "pay_depth",
+          "label": "計價深度",
+          "type": "number",
+          "unit": "m",
+          "step": "0.01",
+          "required": true
+        },
+        {
+          "key": "pay_area",
+          "label": "計價面積",
+          "type": "number",
+          "unit": "㎡",
+          "readonly": true,
+          "computed": {
+            "op": "multiply",
+            "args": [
+              "unit_length",
+              "pay_depth"
+            ],
+            "precision": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "defect",
+      "type": "defect_review",
+      "title": "缺失複查結果",
+      "visible_when": "has_failure"
+    },
+    {
+      "id": "signatures",
+      "type": "signatures",
+      "title": "作業性簽認",
+      "slots": [
+        {
+          "key": "contractor_rep",
+          "label": "施工廠商隨同人員",
+          "role": "contractor",
+          "required": true
+        },
+        {
+          "key": "supervisor",
+          "label": "監造工務所",
+          "role": "supervisor",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "remarks",
+      "type": "remarks",
+      "title": "備註",
+      "items": [
+        "抽查結果合格者註明「○」，不合格者註明「╳」，無此檢查項目註明「／」。",
+        "抽查標準及實際抽查情形應具體明確，定量項目應載明數值及單位。",
+        "嚴重缺失或缺失複查未完成改善，應建立缺失追蹤紀錄。",
+        "本 PoC 簽認為作業性簽認示範，不等同正式 FIDO 核可簽章。"
+      ]
+    }
+  ],
+  "signature_slots": [
+    {
+      "key": "contractor_rep",
+      "label": "施工廠商隨同人員",
+      "role": "contractor",
+      "required": true
+    },
+    {
+      "key": "supervisor",
+      "label": "監造工務所",
+      "role": "supervisor",
+      "required": true
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "form_code": "T7-07",
+  "schema_version": "1.0.0-poc",
+  "title": "公共工程營建剩餘資源處理抽查紀錄表",
+  "org": "臺北市政府捷運工程局第一區工程處",
+  "template_type": "decision_matrix",
+  "source": {
+    "caption": "表 7-7 公共工程營建剩餘資源處理抽查紀錄表",
+    "form_code_original": "FP04-EMA2-22-B-R02"
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "fields",
+      "title": "基本資料",
+      "layout": "grid-2",
+      "fields": [
+        {
+          "key": "agency",
+          "label": "工程主辦機關",
+          "type": "text",
+          "required": true,
+          "default": "臺北市政府捷運工程局第一區工程處"
+        },
+        {
+          "key": "project_name",
+          "label": "工程名稱",
+          "type": "text",
+          "required": true,
+          "default": "環狀線東環段 CF710 區段標工程"
+        },
+        {
+          "key": "project_location",
+          "label": "工程地點",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "contractor",
+          "label": "承攬廠商",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "supervision_unit",
+          "label": "監造單位",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "carrier",
+          "label": "營建剩餘資源運送業者",
+          "type": "text"
+        },
+        {
+          "key": "resource_quantity",
+          "label": "產出或需求數量",
+          "type": "number",
+          "unit": "m³",
+          "step": "0.01"
+        },
+        {
+          "key": "resource_class",
+          "label": "營建剩餘資源分類",
+          "type": "text"
+        },
+        {
+          "key": "period_start",
+          "label": "運送期間起",
+          "type": "date"
+        },
+        {
+          "key": "period_end",
+          "label": "運送期間迄",
+          "type": "date"
+        },
+        {
+          "key": "period_quantity",
+          "label": "本期間數量",
+          "type": "number",
+          "unit": "m³",
+          "step": "0.01"
+        },
+        {
+          "key": "inspect_at",
+          "label": "抽查時間",
+          "type": "datetime-local",
+          "required": true
+        },
+        {
+          "key": "work_today",
+          "label": "抽查當日現場施工或開挖（回填）",
+          "type": "radio",
+          "required": true,
+          "options": [
+            {
+              "value": "yes",
+              "label": "是"
+            },
+            {
+              "value": "no",
+              "label": "否"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decision",
+      "type": "decision_matrix",
+      "title": "抽查項目",
+      "options": [
+        "yes",
+        "no",
+        "na"
+      ],
+      "items": [
+        {
+          "key": "plan_approved",
+          "label": "營建剩餘資源處理計畫是否核准？",
+          "explanation_required_when": [
+            "no"
+          ]
+        },
+        {
+          "key": "basic_data",
+          "label": "承攬廠商是否製作基本資料表？",
+          "explanation_required_when": [
+            "no"
+          ]
+        },
+        {
+          "key": "slurry_equipment",
+          "label": "是否設置泥漿先期處理設備？",
+          "explanation_required_when": [
+            "no"
+          ]
+        },
+        {
+          "key": "voucher_match",
+          "label": "抽查已處理完成之營建剩餘資源運送憑證內容是否符合處理計畫？",
+          "explanation_required_when": [
+            "no"
+          ]
+        },
+        {
+          "key": "period_match",
+          "label": "營建剩餘資源運送期間是否符合處理計畫內容？",
+          "explanation_required_when": [
+            "no"
+          ]
+        },
+        {
+          "key": "monthly_register",
+          "label": "承攬廠商是否定期登錄前月出土相關資料？",
+          "explanation_required_when": [
+            "no"
+          ]
+        },
+        {
+          "key": "completion_report",
+          "label": "處理項目完成後是否製作營建剩餘資源完成報告書？",
+          "explanation_required_when": [
+            "no"
+          ]
+        },
+        {
+          "key": "transport_today",
+          "label": "抽查當日現場是否正進行營建剩餘資源運離工區作業？",
+          "explanation_required_when": [
+            "no"
+          ]
+        },
+        {
+          "key": "no_leak",
+          "label": "車輛載運營建剩餘資源是否無滲漏、掉落情形？",
+          "explanation_required_when": [
+            "no"
+          ]
+        },
+        {
+          "key": "sealed_truck",
+          "label": "運輸泥漿時是否使用密閉式車斗車輛？",
+          "explanation_required_when": [
+            "no"
+          ]
+        },
+        {
+          "key": "vehicle_cover",
+          "label": "運離工區時載運車輛是否依環保法規覆蓋？",
+          "explanation_required_when": [
+            "no"
+          ]
+        },
+        {
+          "key": "wash_equipment",
+          "label": "工地是否設置車輛清洗設備？",
+          "explanation_required_when": [
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "issues",
+      "type": "fields",
+      "title": "缺失、待改善或待釐清事項",
+      "fields": [
+        {
+          "key": "issues",
+          "label": "事項說明",
+          "type": "textarea",
+          "placeholder": "具體記載缺失、改善期限與責任人"
+        }
+      ]
+    },
+    {
+      "id": "defect",
+      "type": "defect_review",
+      "title": "缺失複查結果",
+      "visible_when": "has_failure"
+    },
+    {
+      "id": "signatures",
+      "type": "signatures",
+      "title": "作業性簽認",
+      "slots": [
+        {
+          "key": "supervisor_manager",
+          "label": "監造單位主管",
+          "role": "manager",
+          "required": true
+        },
+        {
+          "key": "contractor_rep",
+          "label": "施工廠商隨同人員",
+          "role": "contractor",
+          "required": true
+        },
+        {
+          "key": "supervisor",
+          "label": "監造工務所",
+          "role": "supervisor",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "remarks",
+      "type": "remarks",
+      "title": "備註",
+      "items": [
+        "運送期間係指前次抽查日至本次抽查前一日；首次抽查則為開始運送首日至本次抽查前一日。",
+        "抽查結果合格者註明「○」，不合格者註明「╳」，無此檢查項目註明「／」。",
+        "抽查標準及實際抽查情形應具體明確，定量項目應載明數值及單位。",
+        "嚴重缺失或缺失複查未完成改善，應建立缺失追蹤紀錄。",
+        "本 PoC 簽認為作業性簽認示範，不等同正式 FIDO 核可簽章。"
+      ]
+    }
+  ],
+  "signature_slots": [
+    {
+      "key": "supervisor_manager",
+      "label": "監造單位主管",
+      "role": "manager",
+      "required": true
+    },
+    {
+      "key": "contractor_rep",
+      "label": "施工廠商隨同人員",
+      "role": "contractor",
+      "required": true
+    },
+    {
+      "key": "supervisor",
+      "label": "監造工務所",
+      "role": "supervisor",
+      "required": true
+    }
+  ]
+}

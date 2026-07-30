@@ -1,0 +1,366 @@
+{
+  "form_code": "T7-10",
+  "schema_version": "1.0.0-poc",
+  "title": "混凝土施工品質抽查紀錄表",
+  "org": "臺北市政府捷運工程局第一區工程處",
+  "template_type": "inspection_checklist",
+  "source": {
+    "caption": "表 7-10 混凝土澆置施工抽查紀錄表",
+    "document": "07_第七章_施工抽查程序及標準_應用表單.docx"
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "fields",
+      "title": "基本資料",
+      "layout": "grid-2",
+      "fields": [
+        {
+          "key": "serial_no",
+          "label": "編號",
+          "type": "text",
+          "required": true,
+          "placeholder": "例：CF710-20260730-001"
+        },
+        {
+          "key": "project_name",
+          "label": "工程名稱",
+          "type": "text",
+          "required": true,
+          "default": "環狀線東環段 CF710 區段標工程"
+        },
+        {
+          "key": "contractor",
+          "label": "施工廠商",
+          "type": "text",
+          "required": true,
+          "default": "皇昌營造股份有限公司／日商奧村組台灣分公司"
+        },
+        {
+          "key": "subitem_name",
+          "label": "分項工程名稱",
+          "type": "text",
+          "required": true,
+          "default": "預拌混凝土工程"
+        },
+        {
+          "key": "construction_unit",
+          "label": "施工單元",
+          "type": "text",
+          "required": true,
+          "placeholder": "例：DW-A01"
+        },
+        {
+          "key": "location",
+          "label": "抽查位置",
+          "type": "text",
+          "required": true,
+          "placeholder": "站體／樓層／里程／單元"
+        },
+        {
+          "key": "inspect_date",
+          "label": "檢查日期",
+          "type": "date",
+          "required": true,
+          "default": "today"
+        },
+        {
+          "key": "inspect_time",
+          "label": "檢查時間",
+          "type": "time",
+          "required": true
+        },
+        {
+          "key": "inspect_timing",
+          "label": "抽查時機",
+          "type": "radio",
+          "required": true,
+          "default": "hold_point",
+          "options": [
+            {
+              "value": "hold_point",
+              "label": "檢驗停留點"
+            },
+            {
+              "value": "random",
+              "label": "隨機抽查"
+            }
+          ]
+        },
+        {
+          "key": "drawing_no",
+          "label": "施工圖號／版次",
+          "type": "text",
+          "placeholder": "核定施工圖號與版次"
+        }
+      ]
+    },
+    {
+      "id": "concrete_info",
+      "type": "fields",
+      "title": "混凝土基本資料",
+      "layout": "grid-2",
+      "fields": [
+        {
+          "key": "mix_no",
+          "label": "核准配比編號",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "cement_type",
+          "label": "水泥型別",
+          "type": "select",
+          "required": true,
+          "options": [
+            "TYPE I",
+            "TYPE I 低鹼",
+            "TYPE II 低鹼"
+          ]
+        },
+        {
+          "key": "design_strength",
+          "label": "設計強度",
+          "type": "number",
+          "unit": "kgf/cm²",
+          "step": "1",
+          "required": true
+        },
+        {
+          "key": "design_slump",
+          "label": "設計坍度",
+          "type": "number",
+          "unit": "cm",
+          "step": "0.1"
+        },
+        {
+          "key": "truck_no",
+          "label": "預拌車號",
+          "type": "text"
+        },
+        {
+          "key": "factory_departure",
+          "label": "出廠時間",
+          "type": "time"
+        },
+        {
+          "key": "pour_start",
+          "label": "開始澆置時間",
+          "type": "time"
+        }
+      ]
+    },
+    {
+      "id": "inspection",
+      "type": "checklist",
+      "title": "抽查項目",
+      "result_options": [
+        "pass",
+        "fail",
+        "na"
+      ],
+      "groups": [
+        {
+          "id": "before",
+          "label": "施工前",
+          "items": [
+            {
+              "key": "surface_clean",
+              "label": "澆置面清潔",
+              "standard": "澆置面無雜物、積水",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "rebar",
+              "label": "鋼筋",
+              "standard": "詳鋼筋施工品質抽查紀錄表",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "formwork",
+              "label": "模板",
+              "standard": "詳模板施工品質抽查紀錄表",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "instrument",
+              "label": "監測儀器",
+              "standard": "依施工圖及監測計畫",
+              "required": true
+            },
+            {
+              "key": "embedded",
+              "label": "預留孔、埋設物",
+              "standard": "依施工圖；CIP 關連廠商確認",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "mix_form",
+              "label": "配比形式",
+              "standard": "核准配比、水泥型別及設計強度相符",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "delivery_time",
+              "label": "出廠至澆置時間",
+              "standard": "不超過 90 分鐘",
+              "required": true,
+              "actual_type": "number",
+              "unit": "分鐘",
+              "max": 90
+            },
+            {
+              "key": "equipment",
+              "label": "澆置設備",
+              "standard": "依澆置計畫；卸料口距離符合契約規定",
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "during",
+          "label": "施工中",
+          "items": [
+            {
+              "key": "layer_interval",
+              "label": "上下層澆置時間間隔",
+              "standard": "不得超過 45 分鐘",
+              "required": true,
+              "actual_type": "number",
+              "unit": "分鐘",
+              "max": 45
+            },
+            {
+              "key": "mass_layer",
+              "label": "巨積混凝土每層澆置厚度",
+              "standard": "不大於 450 mm",
+              "required": false,
+              "actual_type": "number",
+              "unit": "mm",
+              "max": 450
+            },
+            {
+              "key": "cover",
+              "label": "保護層厚度",
+              "standard": "符合圖說規定",
+              "required": true
+            },
+            {
+              "key": "temperature",
+              "label": "混凝土溫度",
+              "standard": "≦ 32℃",
+              "required": true,
+              "actual_type": "number",
+              "unit": "℃",
+              "max": 32
+            },
+            {
+              "key": "chloride",
+              "label": "氯離子含量",
+              "standard": "≦ 0.15 kg/m³",
+              "required": true,
+              "actual_type": "number",
+              "unit": "kg/m³",
+              "max": 0.15,
+              "step": "0.01"
+            },
+            {
+              "key": "slump",
+              "label": "普通混凝土坍度檢驗",
+              "standard": "依設計坍度容許差：≦5cm ±1.5cm；5～10cm ±2.5cm；>10cm ±4cm",
+              "required": true,
+              "actual_type": "number",
+              "unit": "cm",
+              "step": "0.1"
+            },
+            {
+              "key": "scc",
+              "label": "自充填混凝土性能檢驗",
+              "standard": "依核准配比與規範（不適用者填／）",
+              "required": true
+            },
+            {
+              "key": "wet_screen",
+              "label": "濕篩水洗法",
+              "standard": "視需要執行，準備 4 號方篩",
+              "required": true
+            },
+            {
+              "key": "specimen_box",
+              "label": "專用試體保護箱",
+              "standard": "須可上鎖",
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "after",
+          "label": "施工後",
+          "items": [
+            {
+              "key": "finish",
+              "label": "完成面檢查",
+              "standard": "表面平整且養護狀態良好（7日）",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "defect",
+      "type": "defect_review",
+      "title": "缺失複查結果",
+      "visible_when": "has_failure"
+    },
+    {
+      "id": "signatures",
+      "type": "signatures",
+      "title": "作業性簽認",
+      "slots": [
+        {
+          "key": "contractor_rep",
+          "label": "施工廠商隨同人員",
+          "role": "contractor",
+          "required": true
+        },
+        {
+          "key": "supervisor",
+          "label": "監造工務所",
+          "role": "supervisor",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "remarks",
+      "type": "remarks",
+      "title": "備註",
+      "items": [
+        "抽查結果合格者註明「○」，不合格者註明「╳」，無此檢查項目註明「／」。",
+        "抽查標準及實際抽查情形應具體明確，定量項目應載明數值及單位。",
+        "嚴重缺失或缺失複查未完成改善，應建立缺失追蹤紀錄。",
+        "本 PoC 簽認為作業性簽認示範，不等同正式 FIDO 核可簽章。"
+      ]
+    }
+  ],
+  "signature_slots": [
+    {
+      "key": "contractor_rep",
+      "label": "施工廠商隨同人員",
+      "role": "contractor",
+      "required": true
+    },
+    {
+      "key": "supervisor",
+      "label": "監造工務所",
+      "role": "supervisor",
+      "required": true
+    }
+  ]
+}

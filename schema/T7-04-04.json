@@ -1,0 +1,286 @@
+{
+  "form_code": "T7-04-04",
+  "schema_version": "1.0.0-poc",
+  "title": "連續壁穩定液施工品質抽查紀錄表（4/6）",
+  "org": "臺北市政府捷運工程局第一區工程處",
+  "template_type": "measurement_grid",
+  "bundle": {
+    "id": "continuous-wall",
+    "label": "連續壁查驗表組",
+    "stage": 4,
+    "total": 6
+  },
+  "source": {
+    "caption": "表 7-4 連續壁施工抽查紀錄表(4/6)",
+    "document": "07_第七章_施工抽查程序及標準_應用表單.docx"
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "fields",
+      "title": "基本資料",
+      "layout": "grid-2",
+      "fields": [
+        {
+          "key": "serial_no",
+          "label": "編號",
+          "type": "text",
+          "required": true,
+          "placeholder": "例：CF710-20260730-001"
+        },
+        {
+          "key": "project_name",
+          "label": "工程名稱",
+          "type": "text",
+          "required": true,
+          "default": "環狀線東環段 CF710 區段標工程"
+        },
+        {
+          "key": "contractor",
+          "label": "施工廠商",
+          "type": "text",
+          "required": true,
+          "default": "皇昌營造股份有限公司／日商奧村組台灣分公司"
+        },
+        {
+          "key": "subitem_name",
+          "label": "分項工程名稱",
+          "type": "text",
+          "required": true,
+          "default": "連續壁工程－穩定液"
+        },
+        {
+          "key": "construction_unit",
+          "label": "施工單元",
+          "type": "text",
+          "required": true,
+          "placeholder": "例：DW-A01"
+        },
+        {
+          "key": "location",
+          "label": "抽查位置",
+          "type": "text",
+          "required": true,
+          "placeholder": "站體／樓層／里程／單元"
+        },
+        {
+          "key": "inspect_date",
+          "label": "檢查日期",
+          "type": "date",
+          "required": true,
+          "default": "today"
+        },
+        {
+          "key": "inspect_time",
+          "label": "檢查時間",
+          "type": "time",
+          "required": true
+        },
+        {
+          "key": "inspect_timing",
+          "label": "抽查時機",
+          "type": "radio",
+          "required": true,
+          "default": "hold_point",
+          "options": [
+            {
+              "value": "hold_point",
+              "label": "檢驗停留點"
+            },
+            {
+              "value": "random",
+              "label": "隨機抽查"
+            }
+          ]
+        },
+        {
+          "key": "drawing_no",
+          "label": "施工圖號／版次",
+          "type": "text",
+          "placeholder": "核定施工圖號與版次"
+        }
+      ]
+    },
+    {
+      "id": "standards",
+      "type": "fields",
+      "title": "設計圖說／規範之抽查標準",
+      "layout": "grid-2",
+      "fields": [
+        {
+          "key": "std_viscosity",
+          "label": "黏滯性標準",
+          "type": "text",
+          "placeholder": "例：__～__ 秒"
+        },
+        {
+          "key": "std_density",
+          "label": "比重標準",
+          "type": "text",
+          "placeholder": "例：__～__ kg/m³"
+        },
+        {
+          "key": "std_sand",
+          "label": "含砂量標準",
+          "type": "text",
+          "placeholder": "例：≦ __ %"
+        },
+        {
+          "key": "std_ph",
+          "label": "pH 值標準",
+          "type": "text",
+          "placeholder": "例：__～__"
+        },
+        {
+          "key": "std_filtration",
+          "label": "濾過度標準",
+          "type": "text",
+          "placeholder": "例：≦ __ cc"
+        }
+      ]
+    },
+    {
+      "id": "measurements",
+      "type": "measurement_grid",
+      "title": "實際抽查情形",
+      "repeatable": true,
+      "min_rows": 1,
+      "max_rows": 30,
+      "columns": [
+        {
+          "key": "phase",
+          "label": "階段",
+          "type": "select",
+          "required": true,
+          "options": [
+            "開挖前",
+            "開挖中",
+            "澆置混凝土前"
+          ]
+        },
+        {
+          "key": "test_time",
+          "label": "試驗時間",
+          "type": "time",
+          "required": true
+        },
+        {
+          "key": "sample_depth",
+          "label": "取樣深度",
+          "type": "number",
+          "unit": "m",
+          "required": true,
+          "step": "0.1"
+        },
+        {
+          "key": "viscosity",
+          "label": "黏滯性",
+          "type": "number",
+          "unit": "秒",
+          "step": "0.1"
+        },
+        {
+          "key": "density",
+          "label": "比重",
+          "type": "number",
+          "unit": "kg/m³",
+          "step": "0.01"
+        },
+        {
+          "key": "sand_content",
+          "label": "含砂量",
+          "type": "number",
+          "unit": "%",
+          "step": "0.01"
+        },
+        {
+          "key": "ph",
+          "label": "pH 值",
+          "type": "number",
+          "step": "0.1"
+        },
+        {
+          "key": "filtration",
+          "label": "濾過度",
+          "type": "number",
+          "unit": "cc",
+          "step": "0.1"
+        },
+        {
+          "key": "result",
+          "label": "結果",
+          "type": "select",
+          "required": true,
+          "options": [
+            "pass",
+            "fail",
+            "na"
+          ]
+        },
+        {
+          "key": "note",
+          "label": "備註",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "defect",
+      "type": "defect_review",
+      "title": "缺失複查結果",
+      "visible_when": "has_failure"
+    },
+    {
+      "id": "signatures",
+      "type": "signatures",
+      "title": "作業性簽認",
+      "slots": [
+        {
+          "key": "contractor_rep",
+          "label": "施工廠商隨同人員",
+          "role": "contractor",
+          "required": true
+        },
+        {
+          "key": "supervisor",
+          "label": "監造工務所",
+          "role": "supervisor",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "remarks",
+      "type": "remarks",
+      "title": "備註",
+      "items": [
+        "抽查結果合格者註明「○」，不合格者註明「╳」，無此檢查項目註明「／」。",
+        "抽查標準及實際抽查情形應具體明確，定量項目應載明數值及單位。",
+        "嚴重缺失或缺失複查未完成改善，應建立缺失追蹤紀錄。",
+        "本 PoC 簽認為作業性簽認示範，不等同正式 FIDO 核可簽章。",
+        "多時序量測應逐筆保存與簽認；本 PoC 先以整表作業性簽認展示。"
+      ]
+    }
+  ],
+  "signature_slots": [
+    {
+      "key": "contractor_rep",
+      "label": "施工廠商隨同人員",
+      "role": "contractor",
+      "required": true
+    },
+    {
+      "key": "supervisor",
+      "label": "監造工務所",
+      "role": "supervisor",
+      "required": true
+    }
+  ],
+  "workflow": {
+    "gating_mode": "signed_prerequisite_same_unit",
+    "prerequisites": [
+      "T7-04-01"
+    ],
+    "notes": "PoC：同一施工單元須先有已簽認的連續壁主表，才可簽認穩定液表。"
+  }
+}

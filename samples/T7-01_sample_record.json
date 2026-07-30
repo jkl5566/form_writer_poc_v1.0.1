@@ -1,0 +1,41 @@
+{
+  "id": "sample-t7-01-001",
+  "form_code": "T7-01",
+  "schema_version": "1.0.0-poc",
+  "title": "鋼板樁施工抽查紀錄表",
+  "version": 1,
+  "status": "signed",
+  "sync_state": "pending",
+  "data": {
+    "serial_no": "CF710-20260730-001",
+    "project_name": "環狀線東環段 CF710 區段標工程",
+    "contractor": "皇昌營造股份有限公司／日商奧村組台灣分公司",
+    "subitem_name": "鋼板樁工程",
+    "construction_unit": "SP-Y30-001",
+    "location": "Y30 站南側工作井",
+    "inspect_date": "2026-07-30",
+    "inspect_time": "14:30",
+    "inspect_timing": "hold_point",
+    "drawing_no": "CF711-SD-SP-001 R2"
+  },
+  "checklist": {
+    "inspection": {
+      "baseline": {"result":"pass","actual":"控制點與放樣線核對完成","note":""},
+      "sheet_pile_spec": {"result":"pass","actual":"SP-III，L=12m","note":"材料證明已核准"},
+      "setting_line": {"result":"pass","actual":"紅外線放樣","note":""},
+      "driving_length": {"result":"pass","actual":"12.0","note":""},
+      "flatness": {"result":"pass","actual":"目視平整，接縫密合","note":""},
+      "cleanup": {"result":"pass","actual":"已完成清潔","note":""}
+    }
+  },
+  "grids": {},
+  "decisions": {},
+  "defect": {"status":"","notes":"","review_date":"","reviewer":"","photos":[]},
+  "signatures": {
+    "contractor_rep": {"signer_name":"示範－廠商代表","signed_at":"2026-07-30T14:42:00+08:00","content_hash":"sample"},
+    "supervisor": {"signer_name":"示範－監造工程司","signed_at":"2026-07-30T14:45:00+08:00","content_hash":"sample"}
+  },
+  "audit": [],
+  "created_at": "2026-07-30T14:20:00+08:00",
+  "updated_at": "2026-07-30T14:45:00+08:00"
+}

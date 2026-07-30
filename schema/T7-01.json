@@ -1,0 +1,221 @@
+{
+  "form_code": "T7-01",
+  "schema_version": "1.0.0-poc",
+  "title": "鋼板樁施工抽查紀錄表",
+  "org": "臺北市政府捷運工程局第一區工程處",
+  "template_type": "inspection_checklist",
+  "source": {
+    "caption": "表 7-1 鋼板樁施工抽查紀錄表",
+    "document": "07_第七章_施工抽查程序及標準_應用表單.docx"
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "fields",
+      "title": "基本資料",
+      "layout": "grid-2",
+      "fields": [
+        {
+          "key": "serial_no",
+          "label": "編號",
+          "type": "text",
+          "required": true,
+          "placeholder": "例：CF710-20260730-001"
+        },
+        {
+          "key": "project_name",
+          "label": "工程名稱",
+          "type": "text",
+          "required": true,
+          "default": "環狀線東環段 CF710 區段標工程"
+        },
+        {
+          "key": "contractor",
+          "label": "施工廠商",
+          "type": "text",
+          "required": true,
+          "default": "皇昌營造股份有限公司／日商奧村組台灣分公司"
+        },
+        {
+          "key": "subitem_name",
+          "label": "分項工程名稱",
+          "type": "text",
+          "required": true,
+          "default": "鋼板樁工程"
+        },
+        {
+          "key": "construction_unit",
+          "label": "施工單元",
+          "type": "text",
+          "required": true,
+          "placeholder": "例：DW-A01"
+        },
+        {
+          "key": "location",
+          "label": "抽查位置",
+          "type": "text",
+          "required": true,
+          "placeholder": "站體／樓層／里程／單元"
+        },
+        {
+          "key": "inspect_date",
+          "label": "檢查日期",
+          "type": "date",
+          "required": true,
+          "default": "today"
+        },
+        {
+          "key": "inspect_time",
+          "label": "檢查時間",
+          "type": "time",
+          "required": true
+        },
+        {
+          "key": "inspect_timing",
+          "label": "抽查時機",
+          "type": "radio",
+          "required": true,
+          "default": "hold_point",
+          "options": [
+            {
+              "value": "hold_point",
+              "label": "檢驗停留點"
+            },
+            {
+              "value": "random",
+              "label": "隨機抽查"
+            }
+          ]
+        },
+        {
+          "key": "drawing_no",
+          "label": "施工圖號／版次",
+          "type": "text",
+          "placeholder": "核定施工圖號與版次"
+        }
+      ]
+    },
+    {
+      "id": "inspection",
+      "type": "checklist",
+      "title": "抽查項目",
+      "result_options": [
+        "pass",
+        "fail",
+        "na"
+      ],
+      "groups": [
+        {
+          "id": "before",
+          "label": "施工前",
+          "items": [
+            {
+              "key": "baseline",
+              "label": "基準線標明",
+              "standard": "依核定施工圖",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "sheet_pile_spec",
+              "label": "鋼板樁規格",
+              "standard": "依核定施工圖",
+              "required": true,
+              "hold_point": true
+            },
+            {
+              "key": "setting_line",
+              "label": "鋼板樁打設放樣線",
+              "standard": "紅外線或水線",
+              "required": true,
+              "hold_point": true
+            }
+          ]
+        },
+        {
+          "id": "during",
+          "label": "施工中",
+          "items": [
+            {
+              "key": "driving_length",
+              "label": "鋼板樁打設長度",
+              "standard": "依核定施工圖",
+              "required": true,
+              "hold_point": true,
+              "actual_type": "number",
+              "unit": "m"
+            },
+            {
+              "key": "flatness",
+              "label": "鋼板樁打設平整度",
+              "standard": "目視平整",
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "after",
+          "label": "施工後",
+          "items": [
+            {
+              "key": "cleanup",
+              "label": "場地整理",
+              "standard": "清潔",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "defect",
+      "type": "defect_review",
+      "title": "缺失複查結果",
+      "visible_when": "has_failure"
+    },
+    {
+      "id": "signatures",
+      "type": "signatures",
+      "title": "作業性簽認",
+      "slots": [
+        {
+          "key": "contractor_rep",
+          "label": "施工廠商隨同人員",
+          "role": "contractor",
+          "required": true
+        },
+        {
+          "key": "supervisor",
+          "label": "監造工務所",
+          "role": "supervisor",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "remarks",
+      "type": "remarks",
+      "title": "備註",
+      "items": [
+        "抽查結果合格者註明「○」，不合格者註明「╳」，無此檢查項目註明「／」。",
+        "抽查標準及實際抽查情形應具體明確，定量項目應載明數值及單位。",
+        "嚴重缺失或缺失複查未完成改善，應建立缺失追蹤紀錄。",
+        "本 PoC 簽認為作業性簽認示範，不等同正式 FIDO 核可簽章。"
+      ]
+    }
+  ],
+  "signature_slots": [
+    {
+      "key": "contractor_rep",
+      "label": "施工廠商隨同人員",
+      "role": "contractor",
+      "required": true
+    },
+    {
+      "key": "supervisor",
+      "label": "監造工務所",
+      "role": "supervisor",
+      "required": true
+    }
+  ]
+}
